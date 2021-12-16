@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
-public class proxyFactoryConfigV1 {
+public class ProxyFactoryConfigV1 {
 
     @Bean
     public OrderRepositoryV1 orderRepositoryV1(LogTrace logTrace) {
@@ -40,7 +40,7 @@ public class proxyFactoryConfigV1 {
 
     @Bean
     public OrderControllerV1 orderControllerV1(LogTrace logTrace) {
-        OrderControllerV1 orderController = new OrderControllerV1(orderServiceV1());
+        OrderControllerV1 orderController = new OrderControllerV1Impl(orderServiceV1(logTrace));
         ProxyFactory factory = new ProxyFactory(orderController);
 
         factory.addAdvisor(getAdvice(logTrace));
