@@ -9,21 +9,7 @@ public class OrderServiceV2 {
         this.orderRepository = orderRepository;
     }
 
-    public void orderItem(String itemId) {
-        // 저장 로직
-        if (itemId.equals("ex")) {
-            throw new IllegalStateException("예외 발생");
-        }
-        sleep(1000);
-    }
-
-    private void sleep(int millis) {
-
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+    public void orderItem(String itemId) throws InterruptedException {
+        orderRepository.save(itemId);
     }
 }

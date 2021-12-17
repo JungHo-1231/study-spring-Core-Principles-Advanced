@@ -16,7 +16,7 @@ public class OrderControllerConcreteProxy extends OrderControllerV2 {
     }
 
     @Override
-    public String request(String itemId) {
+    public String request(String itemId) throws InterruptedException {
         TraceStatus status = null;
 
         try {

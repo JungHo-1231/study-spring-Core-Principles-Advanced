@@ -18,7 +18,7 @@ public class OrderControllerV2 {
     }
 
     @GetMapping("/v2/request")
-    public String request(String itemId) {
+    public String request(String itemId) throws InterruptedException {
         orderServiceV2.orderItem(itemId);
         return "ok";
     }
